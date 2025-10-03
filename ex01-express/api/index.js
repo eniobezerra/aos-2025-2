@@ -38,6 +38,7 @@ app.use("/session", routes.session);
 app.use("/users", routes.user);
 app.use("/messages", routes.message);
 
+
 const port = process.env.PORT ?? 3000;
 
 const eraseDatabaseOnSync = process.env.ERASE_DATABASE === "true";
