@@ -32,3 +32,4 @@ Object.keys(models).forEach((key) => {
 export { sequelize };
 
 export default models;
+// teste da tarefa
