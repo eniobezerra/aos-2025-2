@@ -45,7 +45,7 @@ router.get("/:tarefaId", async (req, res) => {
 
 router.post("/", async (req, res) => {
     try {
-        const { descricao, finalizada } = req.body;
+        const { descricao, concluida } = req.body;
 
         if(!descricao){
             return res.status(400).send({
@@ -55,7 +55,7 @@ router.post("/", async (req, res) => {
 
         const tarefaData = {
             descricao,
-            finalizada
+            concluida
         }
 
         const newtarefa = await tarefaModel.create(tarefaData);
@@ -83,11 +83,11 @@ router.put("/:tarefaId", async (req, res) => {
             })
         }
 
-        const { descricao, finalizada } = req.body;
+        const { descricao, concluida } = req.body;
 
         const tarefaData = {
         descricao,
-        finalizada
+        concluida
         }
         
         const tarefaUpdated = await tarefaModel.update(tarefaData, { where : {

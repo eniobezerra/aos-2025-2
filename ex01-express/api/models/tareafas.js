@@ -7,7 +7,7 @@ const getTarefasModel =  (sequelize, { DataTypes }) => {
             notEmpty: true,
             },
         },
-        finalizada : {
+        concluida : {
           type : DataTypes.BOOLEAN,
           defaultValue: false,
         }
