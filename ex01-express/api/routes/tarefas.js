@@ -2,7 +2,7 @@ import { Router } from "express";
 import models from "../models/index.js";
 
 const router = Router();
-const tarefaModel = models.tarefa;
+const tarefaModel = models.Tarefa;
 
 router.get('/', async (req, res) => {
     try {
