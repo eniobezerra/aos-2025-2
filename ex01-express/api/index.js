@@ -1,7 +1,7 @@
 import "dotenv/config";
 import cors from "cors";
 import express from "express";
-
+import bcrypt from "bcrypt";
 import models, { sequelize } from "./models";
 import routes from "./routes";
 
@@ -38,6 +38,7 @@ app.use("/session", routes.session);
 app.use("/users", routes.user);
 app.use("/messages", routes.message);
 app.use("/tarefas", routes.tarefas);
+app.use("/login", routes.auth)
 
 const port = process.env.PORT ?? 3000;
 
@@ -58,6 +59,7 @@ const createUsersWithMessages = async () => {
     {
       username: "rwieruch",
       email: "rwieruch@email.com",
+      password : await bcrypt.hash("1234", 10),
       messages: [
         {
           text: "Published the Road to learn React",
@@ -76,6 +78,7 @@ const createUsersWithMessages = async () => {
     {
       username: "ddavids",
       email: "ddavids@email.com",
+      password : await bcrypt.hash("1234", 10),
       messages: [
         {
           text: "Happy to release ...",
